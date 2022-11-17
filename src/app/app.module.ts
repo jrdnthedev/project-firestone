@@ -7,11 +7,10 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { HomeComponent } from './features/home/home.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
-import { ComicsComponent } from './features/comics/comics.component';
-import { CharactersComponent } from './features/characters/characters.component';
 import { NavLinksComponent } from './core/components/nav-links/nav-links.component';
-import { SharedModule } from './shared/shared.module';
-import { ApiInterceptorService } from './core/interceptor/api-interceptor.service';
+import { ApiInterceptorService } from './core/interceptor/api-interceptor/api-interceptor.service';
+import { ComicsModule } from './features/comics/comics.module';
+import { CacheInterceptor } from './core/interceptor/cache-interceptor/cache.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,18 +19,17 @@ import { ApiInterceptorService } from './core/interceptor/api-interceptor.servic
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ComicsComponent,
-    CharactersComponent,
     NavLinksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule    
+    ComicsModule 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

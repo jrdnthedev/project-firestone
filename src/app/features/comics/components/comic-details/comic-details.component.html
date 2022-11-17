@@ -1,0 +1,9 @@
+<div id="bkg-image" [style.background-image]="'url('+ comic?.data.results[0].thumbnail.path +'.' +comic?.data.results[0].thumbnail.extension +')'"></div>
+<section>
+    <h1>{{comic.data.results[0].title}}</h1>
+    <p>{{comic.data.results[0].description}}</p>
+    <!-- <h3>Members:</h3> -->
+    <!-- <ng-container *ngFor="let member of team.members">
+        <a [routerLink]="['/user',member.id]"><p>{{member.firstname}}</p></a>
+    </ng-container> -->
+</section>

@@ -2,22 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ComicsService } from './services/comics.service';
 
 @Component({
-  selector: 'fs-comics',
   templateUrl: './comics.component.html',
   styleUrls: ['./comics.component.scss']
 })
 export class ComicsComponent implements OnInit {
-  comics: any;
+  pageTitle: string = 'Comic Page';
 
-  constructor(private _comicService: ComicsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getComics();
+    
   }
 
-  getComics(): void {
-    this._comicService.getComics().subscribe(
-      comic => this.comics = comic
-    )
-  }
 }

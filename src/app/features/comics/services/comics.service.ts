@@ -13,7 +13,14 @@ export class ComicsService {
 
   getComics(): Observable<IComics[]> {
     return this._http.get<IComics[]>(this._url).pipe(
-      tap(data => console.log('all', JSON.stringify(data))),
+      tap(data => console.log('all', data)),
+      catchError(this.handleError)
+    );
+  }
+
+  getComicById(id: number): Observable<IComics[]> {
+    return this._http.get<IComics[]>(this._url+'/'+id).pipe(
+      tap(data => console.log('all', data)),
       catchError(this.handleError)
     );
   }

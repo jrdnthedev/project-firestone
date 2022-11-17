@@ -1,0 +1,6 @@
+<h2>{{pageTitle}}</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+   <ng-container *ngFor="let comic of comics.data.results">
+    <fs-card [data]="comic"></fs-card>
+   </ng-container> 
+</div>
