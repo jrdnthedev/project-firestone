@@ -1,7 +1,5 @@
 <h2>{{pageTitle}}</h2>
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Search" aria-label="Search Bar" aria-describedby="Search Bar" [(ngModel)]="listFilter">
-</div>
+<fs-search-bar (valueChange)="onValueChange($event)"></fs-search-bar>
 <div class="row row-cols-1 row-cols-md-3 g-4">
    <ng-container *ngFor="let comic of filteredComics">
     <fs-card [data]="comic"></fs-card>

@@ -3,20 +3,24 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
-    RouterModule    
+    RouterModule,
+    FormsModule    
   ],
   exports: [
     CardComponent,
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SearchBarComponent
   ]
 })
 export class SharedModule { }

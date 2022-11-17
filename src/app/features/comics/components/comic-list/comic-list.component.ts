@@ -11,7 +11,6 @@ import { ComicsService } from '../../services/comics.service';
 export class ComicListComponent implements OnInit {
   comics: any;
   pageTitle: string = 'Comic List';
-  private _filteredListItem: string = '';
   filteredComics:any;
   subscription!: Subscription;
 
@@ -30,15 +29,10 @@ export class ComicListComponent implements OnInit {
     )
   }
 
-  get listFilter(): string{
-    return this._filteredListItem;
+  onValueChange(value: string): void {
+    this.filteredComics = this.filterList(value);
   }
-
-  set listFilter(item: string) {
-    this._filteredListItem = item;
-    this.filteredComics = this.filterList(item);
-  }
-
+  
   filterList(filterBy: string){
     filterBy.toLocaleLowerCase();
     return this.comics.data.results.filter((comic:any) => comic.title.toLocaleLowerCase().includes(filterBy))
