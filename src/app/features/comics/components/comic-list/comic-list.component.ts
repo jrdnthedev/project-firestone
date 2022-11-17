@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ComicsService } from '../../services/comics.service';
 
@@ -10,7 +11,10 @@ import { ComicsService } from '../../services/comics.service';
 export class ComicListComponent implements OnInit {
   comics: any;
   pageTitle: string = 'Comic List';
-  
+  private _filteredListItem: string = '';
+  filteredComics:any;
+  subscription!: Subscription;
+
   constructor(private _comicService: ComicsService) { }
 
   ngOnInit(): void {
@@ -18,8 +22,30 @@ export class ComicListComponent implements OnInit {
   }
 
   getComics(): void {
-    this._comicService.getComics().subscribe(
-      comic => this.comics = comic
+    this.subscription = this._comicService.getComics().subscribe(
+      comic =>{ 
+        this.comics = comic
+        this.filteredComics = this.comics.data.results;
+      }
     )
+  }
+
+  get listFilter(): string{
+    return this._filteredListItem;
+  }
+
+  set listFilter(item: string) {
+    this._filteredListItem = item;
+    this.filteredComics = this.filterList(item);
+  }
+
+  filterList(filterBy: string){
+    filterBy.toLocaleLowerCase();
+    return this.comics.data.results.filter((comic:any) => comic.title.toLocaleLowerCase().includes(filterBy))
+  }
+
+  ngOnDestroy(): void {
+    //unsubscribe when finished!
+    this.subscription.unsubscribe();
   }
 }

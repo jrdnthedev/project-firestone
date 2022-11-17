@@ -5,7 +5,9 @@ export interface IComics {
     modified: string;
     resourceURI: string;
     urls: string;
-    thumbnail: string;
+    thumbnail: {};
+    creator:[];
+    images:[];
     comics: [];
     stories: [];
     events: [];

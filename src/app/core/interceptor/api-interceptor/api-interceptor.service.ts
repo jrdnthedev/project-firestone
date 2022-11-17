@@ -9,7 +9,7 @@ import {Md5} from "md5-typescript";
 
 export class ApiInterceptorService implements HttpInterceptor{
   private _rand: string = Math.random().toString(36).slice(2);
-  private _md5:any = Md5.init(this._rand + 'apikey'+'apikey');
+  private _md5:any = Md5.init(this._rand + 'e4c8dc328e9f94dafea4fb4a49c0a514a28485b0'+'c1fa97ff8d3602cd25fb15eef032aa72');
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -27,7 +27,7 @@ export class ApiInterceptorService implements HttpInterceptor{
       },
       params: new HttpParams()
       .set('ts', this._rand)
-      .set('apikey', 'apikey')
+      .set('apikey', 'c1fa97ff8d3602cd25fb15eef032aa72')
       .set('hash', this._md5)
     });
 
