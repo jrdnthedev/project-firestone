@@ -10,6 +10,9 @@ import { NavLinksComponent } from './core/components/nav-links/nav-links.compone
 import { ApiInterceptorService } from './core/interceptor/api-interceptor/api-interceptor.service';
 import { ComicsModule } from './features/comics/comics.module';
 import { CacheInterceptor } from './core/interceptor/cache-interceptor/cache.interceptor';
+import { CharacterListComponent } from './features/characters/components/character-list/character-list.component';
+import { CharacterDetailsComponent } from './features/characters/components/character-details/character-details.component';
+import { CharactersModule } from './features/characters/characters.module';
 
 @NgModule({
   declarations: [
@@ -17,13 +20,16 @@ import { CacheInterceptor } from './core/interceptor/cache-interceptor/cache.int
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    NavLinksComponent
+    NavLinksComponent,
+    CharacterListComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ComicsModule 
+    ComicsModule,
+    CharactersModule 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptorService, multi: true },
