@@ -1,9 +1,9 @@
 <div class="card h-100">
-    <a [routerLink]="['/comics', data.id]">
+    <a [routerLink]="[type == 'comic'?'/comics':'/characters', data.id]">
         <div class="card-image" [style.background-image]="'url('+ data?.thumbnail.path +'.' +data?.thumbnail.extension +')'"></div>
         <div class="card-body">
-            <h5 class="card-title">{{data.title}}</h5>
-            <p class="card-text">Created By: {{data.creators.items.name}}</p>
+            <h5 class="card-title">{{data.title || data.name}}</h5>
+            <p class="card-text">Created By: {{data.creators?.items.name}}</p>
         </div>
     </a>
 </div>
