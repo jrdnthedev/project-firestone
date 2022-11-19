@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CharactersService } from '../../services/characters.service';
 
 @Component({
   selector: 'fs-character-details',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-details.component.scss']
 })
 export class CharacterDetailsComponent implements OnInit {
+  character:any;
+  subscription!: Subscription;
 
-  constructor() { }
+  constructor(private _characterService: CharactersService,private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = Number(this._route.snapshot.paramMap.get('id'));
+    this.getCharacter(id);
   }
 
+  getCharacter(id:number): void {
+    this.subscription = this._characterService.getCharacterById(id).subscribe(
+      character => this.character = character
+    )
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

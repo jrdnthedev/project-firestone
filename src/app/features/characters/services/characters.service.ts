@@ -19,6 +19,14 @@ export class CharactersService {
     )
   }
 
+  getCharacterById(id:number): Observable<ICharacter> {
+
+    return this._http.get<ICharacter>(this._url+'/'+id).pipe(
+      tap(character => console.log('All',JSON.stringify(character))),
+      catchError(this.handleError)
+    )
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if(err.error instanceof ErrorEvent) {
