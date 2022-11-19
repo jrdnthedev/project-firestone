@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # api info
-/src/core/interceptor/api-interceptor/api-interceptor-service.ts
+/src/app/core/interceptor/api-interceptor/api-interceptor-service.ts

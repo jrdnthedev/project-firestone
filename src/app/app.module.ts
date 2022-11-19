@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
-import { HomeComponent } from './features/home/home.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 import { NavLinksComponent } from './core/components/nav-links/nav-links.component';
 import { ApiInterceptorService } from './core/interceptor/api-interceptor/api-interceptor.service';
@@ -17,7 +16,6 @@ import { CacheInterceptor } from './core/interceptor/cache-interceptor/cache.int
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     PageNotFoundComponent,
     NavLinksComponent
   ],

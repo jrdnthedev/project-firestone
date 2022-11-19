@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
-import { IComics } from '../interface/comics';
+import { IComics } from '../interfaces/comics';
 
 @Injectable({
   providedIn: 'root'
