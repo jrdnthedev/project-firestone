@@ -1,1 +1,9 @@
-<p>character-details works!</p>
+<div id="bkg-image" [style.background-image]="'url('+ character?.data.results[0].thumbnail.path +'.' +character?.data.results[0].thumbnail.extension +')'"></div>
+<section>
+    <h1>{{character.data.results[0].name}}</h1>
+    <p>{{character.data.results[0].description}}</p>
+    <!-- <h3>Members:</h3> -->
+    <!-- <ng-container *ngFor="let member of team.members">
+        <a [routerLink]="['/user',member.id]"><p>{{member.firstname}}</p></a>
+    </ng-container> -->
+</section>

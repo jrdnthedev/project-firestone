@@ -1,1 +1,7 @@
-<p>character-list works!</p>
+<h2>{{pageTitle}}</h2>
+<fs-search-bar (valueChange)="onValueChange($event)"></fs-search-bar>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+   <ng-container *ngFor="let character of filteredCharacters">
+    <fs-card [data]="character" [type]="'character'"></fs-card>
+   </ng-container> 
+</div>

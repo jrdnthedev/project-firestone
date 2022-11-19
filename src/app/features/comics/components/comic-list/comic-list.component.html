@@ -2,6 +2,6 @@
 <fs-search-bar (valueChange)="onValueChange($event)"></fs-search-bar>
 <div class="row row-cols-1 row-cols-md-3 g-4">
    <ng-container *ngFor="let comic of filteredComics">
-    <fs-card [data]="comic"></fs-card>
+    <fs-card [data]="comic" [type]="'comic'"></fs-card>
    </ng-container> 
 </div>
