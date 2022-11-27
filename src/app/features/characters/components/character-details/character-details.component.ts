@@ -19,7 +19,7 @@ export class CharacterDetailsComponent implements OnInit {
     // const id = Number(this._route.snapshot.paramMap.get('id'));
     // this.getCharacter(id);
 
-    this.character = this._route.snapshot.data['resolvedData']
+    this.character = this._route.snapshot.data['resolvedCharacterData']
   }
 
   getCharacter(id:number): void {

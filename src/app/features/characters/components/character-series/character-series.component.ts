@@ -13,7 +13,7 @@ export class CharacterSeriesComponent implements OnInit {
 
   ngOnInit(): void {
     this._route.parent?.data.subscribe(data => {
-      this.seriesDetails = data['resolvedData'];
+      this.seriesDetails = data['resolvedCharacterData'];
     })
   }
 

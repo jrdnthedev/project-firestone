@@ -1,8 +1,8 @@
 
 <section class="container">
     <div class="row mb-4">
-        <div class="col-sm-4" id="bkg-image" [style.background-image]="'url('+ character?.data.results[0].thumbnail.path +'.' +character?.data.results[0].thumbnail.extension +')'"></div>
-        <div class="col-sm-8" id="description">
+        <div class="col-sm-4 bkg-image" [style.background-image]="'url('+ character?.data.results[0].thumbnail.path +'.' +character?.data.results[0].thumbnail.extension +')'"></div>
+        <div class="col-sm-8 description">
             <h1>{{character.data.results[0].name}}</h1>
             <p>{{character.data.results[0].description || 'Descripttion Not Available'}}</p>
         </div>
@@ -20,7 +20,7 @@
             </li>
         </ul>
     </div>
-    <div class="row" id="tabs-container">
+    <div class="row tabs-container">
         <router-outlet></router-outlet>
     </div>
 </section>

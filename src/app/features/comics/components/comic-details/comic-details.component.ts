@@ -14,8 +14,9 @@ export class ComicDetailsComponent implements OnInit {
   constructor(private _comicService: ComicsService, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = Number(this._route.snapshot.paramMap.get('id'));
-    this.getComic(id);
+    // const id = Number(this._route.snapshot.paramMap.get('id'));
+    // this.getComic(id);
+    this.comic = this._route.snapshot.data['resolvedComicData']
   }
 
   getComic(id: number): void {
@@ -24,7 +25,7 @@ export class ComicDetailsComponent implements OnInit {
     )
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 }
