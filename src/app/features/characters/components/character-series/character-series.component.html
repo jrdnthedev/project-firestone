@@ -1,0 +1,6 @@
+<h3>series:</h3>
+<ng-container *ngFor="let series of seriesDetails.data.results[0].series.items">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <p>{{series.name}}</p>
+    </div>
+</ng-container>

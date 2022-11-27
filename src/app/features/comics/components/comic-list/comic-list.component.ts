@@ -38,8 +38,8 @@ export class ComicListComponent implements OnInit {
     return this.comics.data.results.filter((comic:any) => comic.title.toLocaleLowerCase().includes(filterBy))
   }
 
-  // ngOnDestroy(): void {
-  //   //unsubscribe when finished!
-  //   this.subscription.unsubscribe();
-  // }
+  ngOnDestroy(): void {
+    //unsubscribe when finished!
+    this.subscription.unsubscribe();
+  }
 }

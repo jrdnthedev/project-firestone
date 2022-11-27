@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { CharacterResolverService } from 'src/app/core/services/character-resolver.service';
 import { CharactersService } from '../../services/characters.service';
 
 @Component({
@@ -15,8 +16,10 @@ export class CharacterDetailsComponent implements OnInit {
   constructor(private _characterService: CharactersService,private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = Number(this._route.snapshot.paramMap.get('id'));
-    this.getCharacter(id);
+    // const id = Number(this._route.snapshot.paramMap.get('id'));
+    // this.getCharacter(id);
+
+    this.character = this._route.snapshot.data['resolvedData']
   }
 
   getCharacter(id:number): void {
@@ -25,7 +28,7 @@ export class CharacterDetailsComponent implements OnInit {
     )
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 }

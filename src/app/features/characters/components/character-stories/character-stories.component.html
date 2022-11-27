@@ -1,0 +1,7 @@
+<h3>stories:</h3>
+<ng-container *ngFor="let story of storyDetails.data.results[0].stories.items">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <p>{{story.name}}</p>
+        <p>{{story.type}}</p>
+    </div>
+</ng-container>
