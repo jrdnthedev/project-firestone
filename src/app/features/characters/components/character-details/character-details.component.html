@@ -1,9 +1,31 @@
-<div id="bkg-image" [style.background-image]="'url('+ character?.data.results[0].thumbnail.path +'.' +character?.data.results[0].thumbnail.extension +')'"></div>
+
 <section>
-    <h1>{{character.data.results[0].name}}</h1>
-    <p>{{character.data.results[0].description}}</p>
-    <!-- <h3>Members:</h3> -->
-    <!-- <ng-container *ngFor="let member of team.members">
-        <a [routerLink]="['/user',member.id]"><p>{{member.firstname}}</p></a>
-    </ng-container> -->
+    <div class="row">
+        <div class="col-4" id="bkg-image" [style.background-image]="'url('+ character?.data.results[0].thumbnail.path +'.' +character?.data.results[0].thumbnail.extension +')'"></div>
+        <div class="col-8">
+            <h1>{{character.data.results[0].name}}</h1>
+            <p>{{character.data.results[0].description}}</p>
+        </div>
+    </div>
+    
+    <h3>comics:</h3>
+    <ng-container *ngFor="let comic of character.data.results[0].comics.items">
+        <p>{{comic.name}}</p>
+    </ng-container>
+
+    <h3>stories:</h3>
+    <ng-container *ngFor="let story of character.data.results[0].stories.items">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <p>{{story.name}}</p>
+            <p>{{story.type}}</p>
+        </div>
+    </ng-container>
+
+    <h3>series:</h3>
+    <ng-container *ngFor="let series of character.data.results[0].series.items">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <p>{{series.name}}</p>
+        </div>
+    </ng-container>
+    
 </section>
