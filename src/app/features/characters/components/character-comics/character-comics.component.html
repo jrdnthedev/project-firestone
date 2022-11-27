@@ -1,4 +1,15 @@
 <h3>comics:</h3>
-<ng-container *ngFor="let comic of comicDetails.data.results[0].comics.items">
-    <p>{{comic.name}}</p>
-</ng-container>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let comic of comicDetails.data.results[0].comics.items">
+                <td>{{comic.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
