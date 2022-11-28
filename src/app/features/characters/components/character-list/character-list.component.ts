@@ -8,7 +8,7 @@ import { CharactersService } from '../../services/characters.service';
   styleUrls: ['./character-list.component.scss']
 })
 export class CharacterListComponent implements OnInit {
-  pageTitle:string = '';
+  pageTitle:string = 'Character List';
   character:any;
   subscribe!:Subscription;
   filteredCharacters:any;
