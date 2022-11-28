@@ -3,27 +3,25 @@
         <div class="col-sm-4 bkg-image" [style.background-image]="'url('+ comic?.data.results[0].thumbnail.path +'.' +comic?.data.results[0].thumbnail.extension +')'"></div>
         <div class="col-sm-8 description">
             <h1>{{comic.data.results[0].title}}</h1>
-            <p>{{comic.data.results[0].description}}</p>
+            <ng-container *ngIf="comic?.data.results[0].creators.items">
+                <ng-container *ngFor="let creator of comic?.data.results[0].creators.items">
+                    <p>Name: {{creator.name}}</p>
+                    <p>Role: {{creator.role}}</p>
+                </ng-container>
+            </ng-container>  
         </div>
     </div>
     <div class="row">
-        <!-- <ul class="nav nav-tabs">
-            <li routerLink="comics" class="nav-item">
-                <a class="nav-link" routerLinkActive="active">Comics</a>
+        <ul class="nav nav-tabs">
+            <li routerLink="issues" class="nav-item">
+                <a class="nav-link" routerLinkActive="active">Issues</a>
             </li>
             <li routerLink="stories" class="nav-item">
                 <a class="nav-link" routerLinkActive="active">Stories</a>
             </li>
-            <li routerLink="series" class="nav-item">
-                <a class="nav-link" routerLinkActive="active">Series</a>
-            </li>
-        </ul> -->
+        </ul>
     </div>
     <div class="row tabs-container">
         <router-outlet></router-outlet>
     </div>
-    <!-- <h3>Members:</h3> -->
-    <!-- <ng-container *ngFor="let member of team.members">
-        <a [routerLink]="['/user',member.id]"><p>{{member.firstname}}</p></a>
-    </ng-container> -->
 </section>

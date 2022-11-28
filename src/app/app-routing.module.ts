@@ -10,11 +10,33 @@ import { CharacterSeriesComponent } from './features/characters/components/chara
 import { CharacterStoriesComponent } from './features/characters/components/character-stories/character-stories.component';
 import { ComicsComponent } from './features/comics/comics.component';
 import { ComicDetailsComponent } from './features/comics/components/comic-details/comic-details.component';
+import { ComicIssuesComponent } from './features/comics/components/comic-issues/comic-issues.component';
+import { ComicStoriesComponent } from './features/comics/components/comic-stories/comic-stories.component';
 import { HomeComponent } from './features/home/home.component';
 
 const routes: Routes = [
   { path:'comics', title:'Comic Page', component: ComicsComponent },
-  { path:'comics/:id', title:'Comic Detail Page', component: ComicDetailsComponent,resolve: {resolvedComicData: ComicResolverService} },
+  { 
+    path:'comics/:id', 
+    title:'Comic Detail Page', 
+    component: ComicDetailsComponent,
+    resolve: {resolvedComicData: ComicResolverService},
+    children:[
+      {
+        path: '',
+        redirectTo: 'issues',
+        pathMatch: 'full'
+      },
+      {
+        path:'stories', title:'Comic Detail Page', 
+        component: ComicStoriesComponent
+      },
+      {
+        path:'issues', title:'Comic Detail Page', 
+        component: ComicIssuesComponent
+      }
+    ] 
+  },
   { path:'characters', title:'Character Page', component: CharactersComponent },
   { 
     path:'characters/:id', title:'Character Detail Page', 

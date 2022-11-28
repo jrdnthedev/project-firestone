@@ -1,0 +1,18 @@
+<h3>issues:</h3>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let issue of comicIssue.data.results[0].collectedIssues">
+                <td>{{issue.name}}</td>
+            </tr>
+            <!-- <tr *ngFor="let price of comicIssue.data.results[0].prices">
+                <td>{{price.price}}</td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>
